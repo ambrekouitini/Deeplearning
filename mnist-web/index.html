@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconnaissance de Chiffres MNIST</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Reconnaissance MNIST</h1>
+        <p class="subtitle">Dessinez un chiffre de 0 à 9 pour tester le modèle de deep learning</p>
+        
+        <div class="canvas-section">
+            <div class="canvas-wrapper">
+                <div class="canvas-label">Zone de dessin</div>
+                <div class="canvas-container">
+                    <canvas id="canvas" width="280" height="280"></canvas>
+                </div>
+            </div>
+            
+            <div class="canvas-wrapper">
+                <div class="canvas-label">Entrée du modèle</div>
+                <div class="canvas-container">
+                    <canvas id="preview" width="140" height="140"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button onclick="clearCanvas()">Effacer</button>
+            <button class="predict-btn" onclick="predict()">Prédire</button>
+        </div>
+        
+        <div id="result" class="result-section">
+            <div class="result-title">Résultat de la prédiction</div>
+            <div class="prediction-display" id="prediction">?</div>
+            <div class="confidence-display" id="confidence">Chargement...</div>
+            <div class="debug-panel" id="debug"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
